@@ -1,0 +1,14 @@
+<%= link_to 'Add New Menu', new_menu_path %>
+
+<% unless @menus.blank? %>
+  <ul>
+    <% @menus.each do |menu| %>
+      <li>
+        <%= menu.date %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Send out menus', distribute_menus_path, method: :post %>
+

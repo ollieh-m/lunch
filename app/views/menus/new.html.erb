@@ -1,0 +1,17 @@
+<%= form_for @form, url: menus_path do |f| %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+
+  <%= f.label :options %>
+  <%= f.fields_for :options do |of| %>
+    <%= of.label :meal %>
+    <%= of.fields_for :meal do |mf| %>
+      <%= mf.label :name %>
+      <%= mf.text_field :name %>
+      <%= mf.label :description %>
+      <%= mf.text_area :description %>
+    <% end %>
+  <% end %>
+
+  <%= f.submit 'Create Menu' %>
+<% end %>
