@@ -1,4 +1,11 @@
 FactoryGirl.define do
+  factory :menu_bloc_membership do
+    menu nil
+    menu_bloc nil
+  end
+  factory :menu_bloc do
+    
+  end
   factory :user do
     slack_id "MyString"
     name "MyString"

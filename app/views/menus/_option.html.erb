@@ -1,0 +1,10 @@
+<div class='nested-fields'>
+  <%= f.label :meal %>
+  <%= f.fields_for :meal do |mf| %>
+    <%= mf.label :name %>
+    <%= mf.text_field :name %>
+    <%= mf.label :description %>
+    <%= mf.text_area :description %>
+  <% end %>
+  <%= link_to_remove_association 'Remove', f %>
+</div>

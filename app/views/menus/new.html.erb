@@ -3,15 +3,12 @@
   <%= f.date_field :date %>
 
   <%= f.label :options %>
-  <%= f.fields_for :options do |of| %>
-    <%= of.label :meal %>
-    <%= of.fields_for :meal do |mf| %>
-      <%= mf.label :name %>
-      <%= mf.text_field :name %>
-      <%= mf.label :description %>
-      <%= mf.text_area :description %>
+  <div id='options'>
+    <%= f.fields_for :options do |of| %>
+      <%= render 'option', f: of %>
     <% end %>
-  <% end %>
+    <%= link_to_add_association 'Add', f, :options, partial: 'option', force_non_association_create: true %>
+  </div>
 
   <%= f.submit 'Create Menu' %>
 <% end %>

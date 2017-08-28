@@ -1,14 +1,16 @@
 <%= link_to 'Add New Menu', new_menu_path %>
 
 <% unless @menus.blank? %>
-  <ul>
-    <% @menus.each do |menu| %>
-      <li>
-        <%= menu.date %>
-      </li>
-    <% end %>
-  </ul>
+  <%= form_for :menu_block, url: menu_blocs_path do |f| %>
+    <ul>
+      <% @menus.each do |menu| %>
+        <li>
+          <%= menu.date %>
+          <%= f.check_box menu.id %>
+        </li>
+      <% end %>
+    </ul>
+    <%= f.submit 'Send out menus' %>
+  <% end %>
+
 <% end %>
-
-<%= link_to 'Send out menus', distribute_menus_path, method: :post %>
-

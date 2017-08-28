@@ -31,14 +31,14 @@ class SlackClient
     end
   end
 
-  def self.send_messages(slack_team, array_of_users, menu_attachments)
+  def self.send_menu(slack_team, array_of_users, menu_attachments)
     array_of_users.each do |user|
       HttpRequest.new(url: 'https://slack.com/api/chat.postMessage',
                       method: :post,
                       headers: { 'Content-type' => 'application/x-www-form-urlencoded' },
                       data: { 'token' => slack_team.access_token,
                               'channel' => "@#{user['name']}",
-                              'text' => "Please choose your meals for the week",
+                              'text' => "Please make your choice...",
                               "response_type" => "in_channel",
                               'attachments' => menu_attachments.to_json } ).perform
 

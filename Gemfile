@@ -21,6 +21,7 @@ gem "title"
 gem "uglifier"
 gem "reform"
 gem "reform-rails"
+gem "cocoon"
 
 group :development do
   gem "listen"

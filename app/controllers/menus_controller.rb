@@ -17,9 +17,4 @@ class MenusController < FrontendBaseController
     end
   end
 
-  def distribute
-    # do this in the background
-    Lunch::Distribute.new.perform
-  end
-
 end
